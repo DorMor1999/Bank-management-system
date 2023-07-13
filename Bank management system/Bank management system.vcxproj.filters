@@ -13,30 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\data">
+      <UniqueIdentifier>{9bc4fc71-1128-4053-9b15-df33f76487fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\data\Data structure">
+      <UniqueIdentifier>{9c24278f-1412-4d51-93b1-a5fe0627c0a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\data\Structures">
+      <UniqueIdentifier>{0184d29e-d84c-4b4c-a7c6-eb723b8b061b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data structure">
+      <UniqueIdentifier>{2c8e47cb-f061-4cae-8608-3e9a43852ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structures">
+      <UniqueIdentifier>{bc406595-52b6-4aee-9dd3-665269e1d9de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVL_TREE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="user.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\data\Data structure</Filter>
     </ClInclude>
     <ClInclude Include="operation.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\data\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="user.h">
+      <Filter>Header Files\data\Structures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AVL_TREE.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="user.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AVL_TREE.c">
+      <Filter>Source Files\Data structure</Filter>
     </ClCompile>
     <ClCompile Include="operation.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="user.c">
+      <Filter>Source Files\Structures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
