@@ -6,15 +6,16 @@
 #include "AVL_TREE.h"
 
 
-#define LEN 40
+#define LEN_OTHERS_ATTRIBUTES 40
 #define LEN_EMAIL 60
 
 
 typedef struct{
-    char firstName[LEN];
-    char lastName[LEN];
+    char firstName[LEN_OTHERS_ATTRIBUTES];
+    char lastName[LEN_OTHERS_ATTRIBUTES];
     char email[LEN_EMAIL];
-    char password[LEN];
+    char password[LEN_OTHERS_ATTRIBUTES];
+    double money;
     struct AVLNode * treeOperations;
 } User;
 

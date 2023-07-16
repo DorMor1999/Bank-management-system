@@ -4,10 +4,11 @@
 User* createUser(const char* firstName, const char* lastName, const char* email, const char* password) 
 {
     User* user = (User*)malloc(sizeof(User));
-    strncpy(user->firstName, firstName, LEN);
-    strncpy(user->lastName, lastName, LEN);
+    strncpy(user->firstName, firstName, LEN_OTHERS_ATTRIBUTES);
+    strncpy(user->lastName, lastName, LEN_OTHERS_ATTRIBUTES);
     strncpy(user->email, email, LEN_EMAIL);
-    strncpy(user->password, password, LEN);
+    strncpy(user->password, password, LEN_OTHERS_ATTRIBUTES);
+    user->money = 0;
     return user;
 }
 

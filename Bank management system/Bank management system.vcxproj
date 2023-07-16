@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="address.h" />
     <ClInclude Include="AVL_TREE.h" />
+    <ClInclude Include="Hash_table.h" />
+    <ClInclude Include="office.h" />
     <ClInclude Include="operation.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="address.c" />
     <ClCompile Include="AVL_TREE.c" />
+    <ClCompile Include="Hash_table.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="office.c" />
     <ClCompile Include="operation.c" />
     <ClCompile Include="user.c" />
   </ItemGroup>

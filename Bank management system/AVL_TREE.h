@@ -49,3 +49,5 @@ AVLNode* insert(AVLNode* node, void* data, int compare(void* a, void* b));
 void inorderTraversal(AVLNode* node, void print(void* p));
 
 
+//function that find the right node in the avl tree
+AVLNode* search(AVLNode* root, void* value, int compare(void* a, void* b));
