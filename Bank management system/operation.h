@@ -26,6 +26,10 @@ Operation* createOperation(const char* operatioType,struct User * userActive,str
 void printOperation(void* p);
 
 
+// Function to compare two opaeraions by time
+int compare_operations_by_time(void* a, void* b);
+
+
 // Function to compare two opaeraions by id
 int compare_operations_by_id(void* a, void* b);
 

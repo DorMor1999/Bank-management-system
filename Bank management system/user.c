@@ -3,7 +3,7 @@
 
 User* createUser(const char* firstName, const char* lastName, const char* email, const char* password) 
 {
-    User* user = (User*)malloc(sizeof(User));
+    User* user = (User*)calloc(1, sizeof(User));
     strncpy(user->firstName, firstName, LEN_OTHERS_ATTRIBUTES);
     strncpy(user->lastName, lastName, LEN_OTHERS_ATTRIBUTES);
     strncpy(user->email, email, LEN_EMAIL);

@@ -19,3 +19,12 @@ typedef struct {
 
 
 Office* create_office(char* bank_name, char* country, char* city, char* street, int building_number);
+
+
+User* sign_in(Office* office_p, const char* email, const char* password);
+
+
+User* get_user_p_by_email(Office* office_p, const char* email);
+
+
+int registration(Office* office_p, const char* firstName, const char* lastName, const char* email, const char* password);
