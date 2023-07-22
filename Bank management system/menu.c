@@ -184,6 +184,7 @@ void user_menu(Office* office_p) {
 			break;
 		case 5:
 			printf("-----------\n");
+			office_p->connected_user_p = NULL;
 			sign_in_or_register_or_about_menu(office_p);
 			return;
 			break;
