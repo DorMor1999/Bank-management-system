@@ -31,6 +31,7 @@ User * sign_in(Office* office_p,const char* email, const char* password) {
 		//passwords are equals
 		if (strcmp(check_exist_user_p->password, password) == 0)
 		{
+			office_p->connected_user_p = check_exist_user_p;
 			return check_exist_user_p;
 		}
 	}
@@ -43,8 +44,14 @@ int registration(Office* office_p,const char * firstName, const char * lastName 
 	//donsnt find user with that email
 	if (check_exist_user_p == NULL)
 	{
-		createUser(firstName, lastName, email, password);
+		User * new_user_p = createUser(firstName, lastName, email, password);
+		office_p->tree_p_users = insert(office_p->tree_p_users, new_user_p, compare_users_by_email);
 		return 1;
 	}
 	return 0;
+}
+
+
+void print_office_data(Office* office_p) {
+	printf("%s\nCountry: %s\nCity: %s\nStreet: %s\nBuilding number: %d",office_p->bank_name, office_p->address_p->country, office_p->address_p->city, office_p->address_p->street, office_p->address_p->building_number);
 }

@@ -35,14 +35,30 @@ void execute_operation(Operation * operation_p) {
 }
 
 
-void printOperation(void* p)
+void printOperation(void* p, User * user_p)
 {
     Operation* operationP = (Operation*)p;
-    printf("operation_id: %d\n", operationP->operation_id);
+    if (strcmp(operationP->operatioType, "deposit") == 0 || strcmp(operationP->operatioType, "withdraw") == 0)
+    {
+        printf("\n-------------\nOperation id: %d\nType: %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
+    }
+    //the type is send
+    else
+    {
+        // i send the money
+        if (compare_users_by_email(user_p,operationP->userActive) == 0)
+        {
+            printf("\n-------------\nOperation id: %d\nType: you %s to %s %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, operationP->operatioType, ((User*)(operationP->userGet))->firstName, ((User*)(operationP->userGet))->lastName, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
+        }
+        // i get money
+        else
+        {
+            printf("\n-------------\nOperation id: %d\nType: %s %s %s you\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, ((User*)(operationP->userActive))->firstName, ((User*)(operationP->userActive))->lastName, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
+        }
+    }
 }
 
 
-// Function to compare two opaeraions by time
 int compare_operations_by_time(void* a, void* b) {
     struct tm* date_and_time1 = ((Operation*)a)->date_and_time;
     struct tm* date_and_time2 = ((Operation*)b)->date_and_time;
@@ -83,9 +99,20 @@ int compare_operations_by_time(void* a, void* b) {
     else if (date_and_time1->tm_sec < date_and_time2->tm_sec)
         return -1;
 
-    //if everting the same we compare them by id
-    return compare_operations_by_id(a, b);
+    return 0;
+}
 
+
+
+// Function to compare two opaeraions by time or id
+int compare_operations_by_time_or_id(void* a, void* b) {
+    int res = compare_operations_by_time(a, b);
+    if (res == 0)
+    {
+        //if everting the same we compare them by id
+        return compare_operations_by_id(a, b);
+    }
+    return res;
 }
 
 

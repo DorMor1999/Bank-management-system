@@ -16,7 +16,11 @@ User* createUser(const char* firstName, const char* lastName, const char* email,
 void printUser(void* p) 
 {
     User* userP = (User*)p;
-    printf("email: %s\n", userP->email);
+    printf("First name: %s\n", userP->firstName);
+    printf("Last name: %s\n", userP->lastName);
+    printf("Email: %s\n", userP->email);
+    printf("Password: %s\n", userP->password);
+    printf("Money: %.2f$", userP->money);
 }
 
 
@@ -26,3 +30,5 @@ int compare_users_by_email(void* a, void* b) {
     User* user_b = (User*)b;
     return strcmp(user_a->email, user_b->email);
 }
+
+

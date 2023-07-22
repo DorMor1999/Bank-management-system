@@ -130,6 +130,7 @@
     <ClInclude Include="address.h" />
     <ClInclude Include="AVL_TREE.h" />
     <ClInclude Include="Hash_table.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="office.h" />
     <ClInclude Include="operation.h" />
     <ClInclude Include="user.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="AVL_TREE.c" />
     <ClCompile Include="Hash_table.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="office.c" />
     <ClCompile Include="operation.c" />
     <ClCompile Include="user.c" />

@@ -15,6 +15,7 @@ typedef struct {
 	Address* address_p;
 	AVLNode* tree_p_users;
 	Hash_table* table_p_opeartions;
+	User* connected_user_p;
 } Office;
 
 
@@ -28,3 +29,6 @@ User* get_user_p_by_email(Office* office_p, const char* email);
 
 
 int registration(Office* office_p, const char* firstName, const char* lastName, const char* email, const char* password);
+
+
+void print_office_data(Office* office_p);

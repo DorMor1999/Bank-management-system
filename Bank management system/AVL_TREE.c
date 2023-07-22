@@ -132,12 +132,17 @@ void inorderTraversal(AVLNode* node, void func(void * p)) {
 
 //function that find the right node in the avl tree
 AVLNode* search(AVLNode* root, void* value, int compare(void* a, void* b) ) {
-    int difference = compare(value, root->data);
-    if (root == NULL || difference == 0) {
+    
+    if (root == NULL) {
         return root;
     }
-    
-    if (difference < 0) {
+
+    int difference = compare(value, root->data);
+    if (difference == 0)
+    {
+        return root;
+    }
+    else if (difference < 0) {
         return search(root->left, value, compare);
     }
     else {

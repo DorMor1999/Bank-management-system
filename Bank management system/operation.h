@@ -23,11 +23,15 @@ typedef struct {
 Operation* createOperation(const char* operatioType,struct User * userActive,struct User * userGet, double sum);
 
 
-void printOperation(void* p);
+void printOperation(void* p, User* user_p);
 
 
 // Function to compare two opaeraions by time
 int compare_operations_by_time(void* a, void* b);
+
+
+// Function to compare two opaeraions by time or id
+int compare_operations_by_time_or_id(void* a, void* b);
 
 
 // Function to compare two opaeraions by id
@@ -35,3 +39,5 @@ int compare_operations_by_id(void* a, void* b);
 
 
 void execute_operation(Operation* operation_p);
+
+

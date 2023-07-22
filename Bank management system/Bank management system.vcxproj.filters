@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Structures">
       <UniqueIdentifier>{0184d29e-d84c-4b4c-a7c6-eb723b8b061b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\menu">
+      <UniqueIdentifier>{df214818-d66b-4264-b8d8-35de5cb24c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\menu">
+      <UniqueIdentifier>{bd116416-91b9-46d5-b8b4-88cb4b069374}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVL_TREE.h">
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="address.h">
       <Filter>Header Files\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="address.c">
       <Filter>Source Files\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.c">
+      <Filter>Source Files\menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
