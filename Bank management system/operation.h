@@ -11,7 +11,7 @@
 
 typedef struct {
     int operation_id; // Remove initialization from struct definition
-    //send , deposit, withdraw
+    //Send , Deposit, Withdraw
     double sum;
     char operatioType[OPERATION_TYPE_LEN];
     struct User* userActive;
@@ -23,7 +23,7 @@ typedef struct {
 Operation* createOperation(const char* operatioType,struct User * userActive,struct User * userGet, double sum);
 
 
-void printOperation(void* p, User* user_p);
+void printOperation(void* p, struct User * user_p);
 
 
 // Function to compare two opaeraions by time

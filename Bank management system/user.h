@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "AVL_TREE.h"
+#include "operation.h"
 
 
 #define LEN_OTHERS_ATTRIBUTES 40
@@ -28,6 +29,9 @@ void printUser(void* p);
 
 // Function to compare two coampre two users by email
 int compare_users_by_email(void* a, void* b);
+
+
+struct Operation* add_operaion(const char* operatioType, User* userActive, User* userGet, double sum);
 
 
 

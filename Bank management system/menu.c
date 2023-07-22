@@ -43,10 +43,10 @@ void sign_in_or_register_or_about_menu(Office* office_p) {
 
 void sign_in_menu(Office* office_p) {
 	int option = 0;
+	char email_p[LEN_EMAIL];
+	char password_p[LEN_OTHERS_ATTRIBUTES];
 	while (option == 0)
 	{
-		char email_p[LEN_EMAIL];
-		char password_p[LEN_OTHERS_ATTRIBUTES];
 		printf("\n-----------\nSign in\n1. Sign in\n2. Back to menu\n");
 		printf("Please choose an option:");
 		scanf_s("%d", &option);
@@ -92,41 +92,44 @@ void register_menu(Office* office_p) {
 	char password_p[LEN_OTHERS_ATTRIBUTES];
 	char firstName_p[LEN_OTHERS_ATTRIBUTES];
 	char lastName_p[LEN_OTHERS_ATTRIBUTES];
-	printf("\n-----------\nRegister\n1. Register\n2. Back to menu\n");
-	printf("Please choose an option:");
-	scanf_s("%d", &option);
-	cleanBuffer();
-	switch (option) {
-	case 1:
-		printf("Register:\n");
-		firstName_and_lastName_form(firstName_p, lastName_p);
-		email_and_password_form(email_p, password_p);
-		int check_registration = registration(office_p,firstName_p, lastName_p, email_p, password_p);
-		//register sucsess
-		if (check_registration == 1)
-		{
-			printf("Register sucsess!\n-----------\n");
+	while (option == 0)
+	{
+		printf("\n-----------\nRegister\n1. Register\n2. Back to menu\n");
+		printf("Please choose an option:");
+		scanf_s("%d", &option);
+		cleanBuffer();
+		switch (option) {
+		case 1:
+			printf("Register:\n");
+			firstName_and_lastName_form(firstName_p, lastName_p);
+			email_and_password_form(email_p, password_p);
+			int check_registration = registration(office_p, firstName_p, lastName_p, email_p, password_p);
+			//register sucsess
+			if (check_registration == 1)
+			{
+				printf("Register sucsess!\n-----------\n");
+				sign_in_or_register_or_about_menu(office_p);
+				return;
+			}
+			//regigster not sucsess
+			else
+			{
+				printf("We have user with that email!\n");
+				option = 0;
+			}
+			break;
+
+		case 2:
+			printf("-----------\n");
 			sign_in_or_register_or_about_menu(office_p);
 			return;
-		}
-		//regigster not sucsess
-		else
-		{
-			printf("We have user with that email!\n");
+			break;
+
+		default:
 			option = 0;
 		}
-		break;
-
-	case 5:
 		printf("-----------\n");
-		sign_in_or_register_or_about_menu(office_p);
-		return;
-		break;
-
-	default:
-		option = 0;
 	}
-
 }
 
 
@@ -158,6 +161,8 @@ void user_menu(Office* office_p) {
 	while (option == 0) {
 		printf("\n-----------\nHey %s %s\nMoney: %.2f$\nUser menu:\n", office_p->connected_user_p->firstName, office_p->connected_user_p->lastName, office_p->connected_user_p->money);
 		printf("1. User data\n");
+		printf("2. Deposit money in your account\n");
+		printf("3. Withdraw money from your account\n");
 		printf("5. Exit\n");
 		printf("Please choose an option:");
 		scanf_s("%d", &option);
@@ -169,7 +174,14 @@ void user_menu(Office* office_p) {
 			printf("\n-----------\n");
 			option = 0;
 			break;
-
+		case 2:
+			deposit_or_withdraw(office_p, "Deposit");
+			option = 0;
+			break;
+		case 3:
+			deposit_or_withdraw(office_p, "Withdraw");
+			option = 0;
+			break;
 		case 5:
 			printf("-----------\n");
 			sign_in_or_register_or_about_menu(office_p);
@@ -179,7 +191,52 @@ void user_menu(Office* office_p) {
 		default:
 			option = 0;
 		}
+		printf("-----------\n");
 	}
+}
+
+
+void deposit_or_withdraw(Office* office_p, char * opearation_type) {
+	int option = 0;
+	int sum;
+	Operation* operation_p = NULL;
+	while (option == 0) {
+		printf("\n-----------\n%s\n1. %s\n2. Back to user menu\n", opearation_type, opearation_type);
+		printf("Please choose an option:");
+		scanf_s("%d", &option);
+		cleanBuffer();
+		switch (option) {
+		case 1:
+			sum = sum_form();
+			operation_p = add_operaion(opearation_type, office_p->connected_user_p, NULL, sum);
+			add_operaion_to_hush_table(office_p, operation_p);
+			printf("%s sucsess!\n-----------\n", opearation_type);
+			return;
+			break;
+
+		case 2:
+			printf("-----------\n");
+			user_menu(office_p);
+			return;
+			break;
+
+		default:
+			option = 0;
+		}
+		printf("-----------\n");
+	}
+}
+
+
+int sum_form() {
+	double value = -1;
+	do
+	{
+		printf("Please enter sum of money:");
+		scanf_s("%lf", &value);
+	} while (value <= 0);
+	cleanBuffer();
+	return value;
 }
 
 

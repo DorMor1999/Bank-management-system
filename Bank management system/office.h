@@ -32,3 +32,6 @@ int registration(Office* office_p, const char* firstName, const char* lastName, 
 
 
 void print_office_data(Office* office_p);
+
+
+void add_operaion_to_hush_table(Office* office_p, Operation* operation_p);

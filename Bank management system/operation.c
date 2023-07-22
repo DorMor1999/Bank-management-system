@@ -20,25 +20,25 @@ Operation* createOperation(const char* operatioType, User* userActive, User* use
 
 
 void execute_operation(Operation * operation_p) {
-    if (strcmp(operation_p->operatioType,"send") == 0)
+    if (strcmp(operation_p->operatioType,"Send") == 0)
     {
         ((User *)(operation_p->userActive))->money -= operation_p->sum;
         ((User*)(operation_p->userGet))->money += operation_p->sum;
     }
-    else if (strcmp(operation_p->operatioType, "deposit") == 0) {
+    else if (strcmp(operation_p->operatioType, "Deposit") == 0) {
         ((User*)(operation_p->userActive))->money += operation_p->sum;
     }
-    //"withdraw"
+    //"Withdraw"
     else {
         ((User*)(operation_p->userActive))->money -= operation_p->sum;
     }
 }
 
 
-void printOperation(void* p, User * user_p)
+void printOperation(void* p, struct User * user_p)
 {
     Operation* operationP = (Operation*)p;
-    if (strcmp(operationP->operatioType, "deposit") == 0 || strcmp(operationP->operatioType, "withdraw") == 0)
+    if (strcmp(operationP->operatioType, "Deposit") == 0 || strcmp(operationP->operatioType, "Withdraw") == 0)
     {
         printf("\n-------------\nOperation id: %d\nType: %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
     }

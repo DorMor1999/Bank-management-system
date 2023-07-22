@@ -32,3 +32,14 @@ int compare_users_by_email(void* a, void* b) {
 }
 
 
+struct Operation* add_operaion(const char* operatioType, User* userActive, User* userGet, double sum) {
+    Operation* operation_p = createOperation(operatioType, userActive, userGet, sum);
+    userActive->treeOperations = insert(userActive->treeOperations, operation_p, compare_operations_by_time_or_id);
+    if (userGet != NULL)
+    {
+        userGet->treeOperations = insert(userGet->treeOperations, operation_p, compare_operations_by_time_or_id);
+    }
+    return operation_p;
+}
+
+

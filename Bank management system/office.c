@@ -55,3 +55,8 @@ int registration(Office* office_p,const char * firstName, const char * lastName 
 void print_office_data(Office* office_p) {
 	printf("%s\nCountry: %s\nCity: %s\nStreet: %s\nBuilding number: %d",office_p->bank_name, office_p->address_p->country, office_p->address_p->city, office_p->address_p->street, office_p->address_p->building_number);
 }
+
+
+void add_operaion_to_hush_table(Office* office_p, Operation* operation_p) {
+	office_p->table_p_opeartions = add_operation_to_arrey(office_p->table_p_opeartions, operation_p);
+}
