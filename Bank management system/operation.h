@@ -23,7 +23,7 @@ typedef struct {
 Operation* createOperation(const char* operatioType,struct User * userActive,struct User * userGet, double sum);
 
 
-void printOperation(void* p, struct User * user_p);
+void printOperation(void* p);
 
 
 // Function to compare two opaeraions by time

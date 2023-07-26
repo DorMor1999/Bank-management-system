@@ -35,26 +35,18 @@ void execute_operation(Operation * operation_p) {
 }
 
 
-void printOperation(void* p, struct User * user_p)
+void printOperation(void* p)
 {
+    printf("\n\nOperation data\n");
     Operation* operationP = (Operation*)p;
     if (strcmp(operationP->operatioType, "Deposit") == 0 || strcmp(operationP->operatioType, "Withdraw") == 0)
     {
-        printf("\n-------------\nOperation id: %d\nType: %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
+        printf("Operation id: %d\nType: %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d", operationP->operation_id, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
     }
     //the type is send
     else
     {
-        // i send the money
-        if (compare_users_by_email(user_p,operationP->userActive) == 0)
-        {
-            printf("\n-------------\nOperation id: %d\nType: you %s to %s %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, operationP->operatioType, ((User*)(operationP->userGet))->firstName, ((User*)(operationP->userGet))->lastName, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
-        }
-        // i get money
-        else
-        {
-            printf("\n-------------\nOperation id: %d\nType: %s %s %s you\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d\n-------------\n", operationP->operation_id, ((User*)(operationP->userActive))->firstName, ((User*)(operationP->userActive))->lastName, operationP->operatioType, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
-        }
+        printf("Operation id: %d\nType: %s %s send money to %s %s\nSum: %.2f$\nDate: %d/%d/%d\nTime: %d:%d", operationP->operation_id, ((User*)(operationP->userActive))->firstName, ((User*)(operationP->userActive))->lastName, ((User*)(operationP->userGet))->firstName, ((User*)(operationP->userGet))->lastName, operationP->sum, operationP->date_and_time->tm_wday, operationP->date_and_time->tm_mon, operationP->date_and_time->tm_year, operationP->date_and_time->tm_hour, operationP->date_and_time->tm_min);
     }
 }
 

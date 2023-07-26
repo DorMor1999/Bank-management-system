@@ -25,7 +25,16 @@ void email_and_password_form(char* email_p, char* password_p);
 void firstName_and_lastName_form(char* firstName_p, char* lastName_p);
 
 
-void deposit_or_withdraw(Office* office_p, char* opearation_type);
+void deposit_or_withdraw_or_send(Office* office_p, char* opearation_type);
+
+
+void get_spesific_operation(Office* office_p);
+
+
+int id_form(Office* office_p);
+
+
+User* email_form_and_get_user(Office* office_p);
 
 
 int sum_form();

@@ -60,3 +60,19 @@ void print_office_data(Office* office_p) {
 void add_operaion_to_hush_table(Office* office_p, Operation* operation_p) {
 	office_p->table_p_opeartions = add_operation_to_arrey(office_p->table_p_opeartions, operation_p);
 }
+
+
+void add_operation_tree_and_hush(Office* office_p, const char* operatioType, User* userGet, double sum) {
+	Operation * operation_p = add_operaion(operatioType, office_p->connected_user_p, userGet, sum);
+	add_operaion_to_hush_table(office_p, operation_p);
+}
+
+
+Operation * get_operation_from_hush(Office* office_p, int id) {
+	Operation * operation_p = find_operation_in_arrey_by_id(office_p->table_p_opeartions,id);
+	if ( (compare_users_by_email(office_p->connected_user_p, operation_p->userActive) != 0 && operation_p->userGet == NULL) || (compare_users_by_email(office_p->connected_user_p, operation_p->userActive) != 0 && operation_p->userGet != NULL && compare_users_by_email(office_p->connected_user_p, operation_p->userGet)))
+	{
+		return NULL;
+	}
+	return operation_p;
+}
