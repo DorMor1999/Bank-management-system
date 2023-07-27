@@ -1,8 +1,10 @@
 # Bank-management-system
-In this project, I have created a bank management system using the C programming language. The main goal was to efficiently organize and handle information. To achieve this, I used two important data structures: AVL tree and Hash Table.
+In this project, I developed a bank management system using the C programming language. The primary goal was to efficiently organize and manage information. To achieve this, I implemented two essential data structures: a Generic AVL tree and a Hash Table.
 
-The AVL tree helps manage user data, allowing quick access to essential information. The Hash Table is used to keep track of all banking operations, making it easier to handle various transactions.
+The Generic AVL tree serves as a versatile foundation for the system, allowing for rapid access to critical user information. By using a Generic structure, the code becomes more efficient and adaptable, capable of handling various data types seamlessly.
 
-Each user has a personalized AVL tree containing their transactions, which optimizes memory and provides fast access to their specific details.
+Alongside the AVL tree, the Hash Table plays a pivotal role in tracking all banking operations, facilitating the handling of various transactions effectively.
 
-Overall, the bank management system is user-friendly, high-performing, and well-organized, ensuring smooth handling of banking operations.
+Every user has a personalized AVL tree containing their transactions, optimizing memory usage and providing swift access to their specific details.
+
+Overall, the bank management system is designed to be user-friendly, high-performing, and well-organized, ensuring seamless handling of banking operations. The incorporation of a Generic AVL tree enhances the system's efficiency and versatility, making it capable of handling diverse data and further improving its overall functionality.
