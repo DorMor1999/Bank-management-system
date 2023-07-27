@@ -13,8 +13,8 @@ Hash_table* add_operation_to_arrey(Hash_table* hash_table_p,Operation* operation
 
 
 // return the right index of elemnt in arrey
-int hash_function(int size, int id) {
-	return ((id - 1) % size);
+int hash_function(int id) {
+	return id - 1;
 }
 
 
